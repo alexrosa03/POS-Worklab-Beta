@@ -27,14 +27,15 @@
 
   	 	 	   <div class="form-body">
                 <label for="">Customer ID</label><br>
-	              <input type="text" placeholder=""><br>
+	              <input id="custId" type="text" placeholder=""><br>
                 <label for="appt-time">Customer Name</label><br>
-	              <input type="text" placeholder=""><br>
+	              <input id="custName"type="text" placeholder=""><br>
 	              <label for="appt-time">Time In</label><br>
-	              <input type="time" id="appt" name="appt"
+	              <input id="time" type="time" id="appt" name="appt"
 	                      min="12:00" max="59:00" required>
 	              <br><label for="date">Date</label><br>
-	              <input type="date" id="date" name="date"><br>
+                  <input type="date" id="date" name="date"><a id="errDate"></a>
+                  <br>
  
                <div class="select">
                 <select name="format" id="format">
@@ -48,7 +49,7 @@
               <br>
               
               <div class="select">
-                <select name="format" id="format">
+                <select id ="purpose" name="format" id="format">
                     <option selected disabled>Rate Purchased</option>
                     <option value="">First Hour</option>
                     <option value="">Hourly</option>
@@ -72,14 +73,32 @@
                </div><br><br><br>
       	  </div>
     </form>
-  </section>   	  
-</body>
+    </section>   	  
+    </body>
 
 
-<script src="../public/js/jquery.min.js"></script>
-<script src="../public/=js/jquery-ui.min.js"></script>
+    <script src="../public/js/jquery.min.js"></script>
+    <script src="../public/js/jquery-ui.min.js"></script>
 
+    <script>
+        
+        $(document).ready(function () {
+            var time =$("#time").val();
+            <?php
+                $username="root";
+                $password="";
+                $database="worklab";
+                $mysqli = new mysqli("localhost", $username, $password, $database);
 
+                $mysqli->select_db($database) or die( "Unable to select database");
+                	
+                $mysqli->close();
+            ?>
+            console.log("console working");
+            console.log($("#custId").val());
+            
+        })
+    </script>
 
 
 </html>
