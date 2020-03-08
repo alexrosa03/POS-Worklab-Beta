@@ -11,7 +11,7 @@
             <h1 id="welcome">Welcome</h1>
             <h4>How may I help you today?</h3>
             <div id="menu">
-                <a>Customers</a>
+                <a id="customer" /*href="scratch/customer_form.php"*/>Customers</a>
                 <a>Inventory</a>
                 <a>Rates</a>
                 <a>Login</a>
@@ -19,4 +19,13 @@
         </div>
 
     </body>
+
+    <script src="public/js/jquery.min.js"></script>
+    <script src="public/=js/jquery-ui.min.js"></script>
+    
+    <script>
+    $("#customer").attr('href',"scratch/customer_form.php");
+
+
+    </script>
 </html>

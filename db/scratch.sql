@@ -13,8 +13,8 @@ CREATE TABLE employee
 
 CREATE TABLE rates
 (
-    Rate_Code varchar (7) NOT NULL,
-    Rate_Name char NOT NULL,
+    Rate_Code char (7) NOT NULL,
+    Rate_Name varchar (50) NOT NULL,
     Price decimal (5,2) NOT NULL,
     Rate_Type ENUM('Regular','Student','Promo'),
     Discount int (2),
@@ -51,7 +51,8 @@ CREATE TABLE customer
     Date_Today DATE,
 
     CONSTRAINT customer_PK PRIMARY KEY (Customer_ID),
-    CONSTRAINT customRate_FK FOREIGN KEY (Rate_Code) REFERENCES rates(Rate_Code));
+    CONSTRAINT customRate_FK FOREIGN KEY (Rate_Code) REFERENCES rates(Rate_Code)
+);
 
 CREATE TABLE Inventory
 (
@@ -84,3 +85,7 @@ CREATE TABLE sales_Transaction
     CONSTRAINT employTransac_FK FOREIGN KEY (Employee_ID) REFERENCES employee(Employee_ID),
     CONSTRAINT inventoryTransac_FK FOREIGN KEY (Inventory_ID) REFERENCES Inventory(Inventory_ID)
 );
+
+INSERT INTO rates (rate_code, rate_name, price,rate_type)
+VALUES('1000001','Normal hourly Rate',12,'Student'),
+('1000002','Regular hourly rate',15,'Regular');

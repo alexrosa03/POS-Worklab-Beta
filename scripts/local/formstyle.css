@@ -3,6 +3,11 @@
 	padding: 0;
 }
 
+.error{
+	color:rgba(255,0,0);
+	font-size:12px;
+}
+
 .logo{
 	width: 17%;
 	float: left;
@@ -278,6 +283,7 @@ select::-ms-expand {
 	color:#ffffff;
 	padding-top: 90%;
 }
+
 
 
 
