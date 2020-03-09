@@ -45,8 +45,41 @@
 					<th class="tableHeader">Out</th>
 				</tr>
 			</thead>
-			
+			<form id="form" action ="delete.php" method="get">
+			<?php
+				 $username="root";
+				 $password="";
+				 $dbname="worklab";
 
+				// Create connection
+				$conn = new mysqli("localhost", $username, $password, $dbname);
+					// Check connection
+				if ($conn->connect_error) {
+					die("Connection failed: " . $conn->connect_error);
+				}
+
+				$sql = "SELECT customer_id, customer_name, purpose, rate_code, discount_status, time_in, time_out FROM Customer";
+				$result = $conn->query($sql);
+
+				if ($result->num_rows > 0) {
+					// output data of each row
+					$ctr=0;
+					while($row = $result->fetch_assoc()) {
+						echo "<tbody><tr>";
+						echo "<td><a href='delete.php?id=".$row['customer_id']."'>hallo</a>" . $row["customer_id"]. " </td><td> " . 
+						$row["customer_name"]. "</td><td>" . 
+						$row["purpose"]. "</td><td>" . 
+						$row["rate_code"]. "</td><td>" .
+						$row["discount_status"]. "</td><td>" .
+						$row["time_in"]. "</td><td>" . 
+						$row["time_out"]. "</td></tr></tbody>";
+					}
+				} else {
+					echo "0 results";
+				}
+
+				mysqli_close($conn);
+			?>
 			<tbody>
 				<tr>
 					<td></td>
@@ -83,6 +116,7 @@
 					</tr>
 			</tbody>			
 		</table>
+			</form>
 
 		<div class="btn1">
 			<button>Edit</button>
@@ -100,8 +134,13 @@
 
     <script src="https://code.iconify.design/1/1.0.4/iconify.min.js"></script>
     <script src="../public/js/jquery.min.js"></script>
-    <script src="../public/=js/jquery-ui.min.js"></script>
+	<script src="../public/=js/jquery-ui.min.js"></script>
+
 
     <script>
+		$(document).ready(function () {
+			$("#del").click(function(){
+		
+		}
     </script>
 </html>

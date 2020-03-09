@@ -44,7 +44,7 @@
 
   <nav class="navbar">
     <img class="logo" src="../assets/img/output-onlinepngtools.png">
-      <a href="#">Customers</a>
+      <a href="customer_list.php">Customers</a>
       <a href="#">Inventory</a>
       <a href="#">Rates</a>
       <a href="#">Employees</a><br>
