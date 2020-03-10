@@ -173,16 +173,7 @@
         
         $(document).ready(function () {
             var time =$("#time").val();
-            <?php
-                $username="root";
-                $password="";
-                $database="worklab";
-                $mysqli = new mysqli("localhost", $username, $password, $database);
-
-                $mysqli->select_db($database) or die( "Unable to select database");
-                	
-                $mysqli->close();
-            ?>
+            
             console.log("console working");
             $("#add").click(function(){
               addCust(

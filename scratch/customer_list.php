@@ -25,7 +25,7 @@
 		</div>
 
 		<div class="btn">
-			<a href="customer form.html"><button>Save</a></button><br>
+			<a href="customer_form.php"><button>Save</a></button><br>
 		</div>
 		
 		<table>
@@ -66,17 +66,15 @@
 					$ctr=0;
 					while($row = $result->fetch_assoc()) {
 						echo "<tbody><tr>";
-						echo "<td><a href='delete.php?id=".$row['customer_id']."'>hallo</a>" . $row["customer_id"]. " </td><td> " . 
+						echo "<td>" . $row["customer_id"]. " </td><td> " . 
 						$row["customer_name"]. "</td><td>" . 
 						$row["purpose"]. "</td><td>" . 
 						$row["rate_code"]. "</td><td>" .
 						$row["discount_status"]. "</td><td>" .
 						$row["time_in"]. "</td><td>" . 
-						$row["time_out"]. "</td></tr></tbody>";
+						$row["time_out"]. "</td><a style='float:right' href='delete.php?id=".$row['customer_id']."'>hallo</a></tr></tbody>";
 					}
-				} else {
-					echo "0 results";
-				}
+				} 
 
 				mysqli_close($conn);
 			?>
